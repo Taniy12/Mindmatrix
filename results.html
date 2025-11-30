@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMatrix - Results</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-image: url(https://img.freepik.com/premium-photo/mental-health-awareness-wallpaper-visual-expression-wellbeing-aspects-resources_924727-33423.jpg); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .result-container {
+            background: rgba(206, 237, 238, 0.9); 
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #f18508;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h4 {
+            color: #0980f8;
+            font-size: 1.5rem;
+        }
+        #level {
+            color: #f34545; 
+            font-weight: bold;
+        }
+        .btn-success {
+            background-color: #088826;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #eb820a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container result-container">
+        <h2 class="text-center mb-4">Your Results</h2>
+        <div id="depression-level" class="mb-4">
+            <h4>Depression/Anxiety Level: <span id="level"></span></h4>
+        </div>
+        <a href="therapists.html" class="btn btn-success">View Recommended Therapists</a>
+    </div>
+</body>
+</html>

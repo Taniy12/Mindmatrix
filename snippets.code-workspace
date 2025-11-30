@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "mindmatrix-web",
+			"path": "../../../../Desktop/Maven Project-1/mindmatrix-web"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"liveServer.settings.multiRootWorkspaceName": "mindmatrix"
+	}
+}

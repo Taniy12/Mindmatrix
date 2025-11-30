@@ -1,0 +1,1 @@
+User ID 31 not found for session ID 2 on therapist ID 22.User ID 12 not found for session ID 6 on therapist ID 22.User ID 33 not found for session ID 15 on therapist ID 22.

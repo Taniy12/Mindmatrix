@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMatrix - Therapist Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-image: url(https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?cs=srgb&dl=pexels-pixabay-206359.jpg&fm=jpg); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .therapist-details-container {
+            background: rgba(235, 128, 128, 0.9); 
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(10, 8, 8, 0.2);
+            max-width: 600px;
+            width: 80%;
+            text-align: center;
+        }
+        .therapist-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .session-info {
+            background-color: #f2f4f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .session-info h4 {
+            color: #28a745; 
+            font-weight: bold;
+        }
+        .session-info p {
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-back {
+            background-color: #6c757d;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container therapist-details-container">
+        <!-- Therapist Image -->
+        <img id="therapist-img" src="" alt="Therapist Image" class="therapist-image">
+
+        <!-- Therapist Name -->
+        <h2 id="therapist-name"></h2>
+
+        <!-- Session Information -->
+        <div class="session-info">
+            <h4>First Session: Free</h4>
+            <p>Your first session with <span id="therapist-name-free"></span> is completely free. Use this opportunity to discuss your concerns and get to know the therapist.</p>
+        </div>
+
+        <div class="session-info">
+            <h4>Follow-up Sessions: Rs.2500 per session</h4>
+            <p>After the first session, each follow-up session will cost Rs.2500  You can book multiple sessions at once for convenience.</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-grid gap-3">
+            <a href="#" class="btn btn-success">Book First Session</a>
+            <a href="therapists.html" class="btn btn-back">Change Therapist</a>
+        </div>
+    </div>
+
+    <!-- JavaScript to Display Therapist Details -->
+    <script>
+        
+        fetch('fetch_therapists.php')
+    .then(response => response.json())
+    .then(data => {
+        const therapistList = document.getElementById('therapistList');
+        data.forEach(therapist => {
+            therapistList.innerHTML += `
+                <div class="therapist">
+                    <h3>${therapist.name}</h3>
+                    <p>Specialization: ${therapist.specialization}</p>
+                    <p>Email: ${therapist.email}</p>
+                </div>
+            `;
+        });
+    });
+        // Retrieve selected therapist from localStorage
+        const selectedTherapist = JSON.parse(localStorage.getItem('selectedTherapist'));
+
+        // Display therapist details
+        if (selectedTherapist) {
+            document.getElementById('therapist-img').src = selectedTherapist.image;
+            document.getElementById('therapist-name').textContent = selectedTherapist.name;
+            document.getElementById('therapist-name-free').textContent = selectedTherapist.name;
+        } else {
+            // Redirect back to therapists page if no therapist is selected
+            window.location.href = 'therapists.html';
+        }
+    </script>
+</body>
+</html>
