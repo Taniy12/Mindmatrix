@@ -1,5 +1,6 @@
 <?php
 // Start the session
+// Test Github push
 session_start();
 
 // Redirect to home.php if user is logged in
